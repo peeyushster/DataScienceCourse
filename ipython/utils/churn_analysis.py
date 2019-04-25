@@ -36,9 +36,6 @@ def getDfSummary(dat):
     return pd.DataFrame(c_summ, index=cols)
 
 
-
-
-
 def plotCorr(dat, lab, h, w):
     '''
     Do a heatmap to visualize the correlation matrix, dropping the label
@@ -94,6 +91,7 @@ def getTickAdj(labs, width):
     lens = -1 * width * (lens - np.mean(lens)) / np.max(lens)
     return lens
 
+
 def plotMI(dat, lab, width = 0.35, signed = 0):
     '''
     Draw a bar chart of the normalized MI between each X and Y
@@ -145,7 +143,6 @@ def makeBarSigned(df, h, lab,  width):
     plt.legend()
 
 
-
 def makeGS_Tup(ent, getmin = True):
 
     ostr = dToString(ent.parameters, ':', '|')
@@ -184,7 +181,6 @@ def rankGS_Params(gs_obj_list, getmin = True):
     return tup_list
 
 
-
 def processGsObjList(gs_obj_list, getmin = True):
 
     rank_list = rankGS_Params(gs_obj_list, getmin)
@@ -200,12 +196,12 @@ def processGsObjList(gs_obj_list, getmin = True):
 
     return [hts, desc, errs, std1]
 
+
 def plotGridSearchSingle(gs_obj_list, getmin = True):
 
     hts, desc, errs, std1 = processGsObjList(gs_obj_list, getmin = True)
 
     gridBarH(hts, desc, errs, std1)
-
 
 
 def plotGridSearchMulti(tup_list, getmin = True):
@@ -265,15 +261,3 @@ def gridBarH(hts, desc, errs, std1, h = 6, w = 12):
 
     plt.plot(tmp[0] * np.ones(len(tmp)), pos)
     plt.plot((tmp[0] + std1) * np.ones(len(tmp)), pos)
-
-
-
-
-
-
-
-
-
-
-
-
